@@ -7,7 +7,6 @@ export default function Users() {
 
   useEffect(() => {
     const controller = new AbortController();
-    const signal = controller.signal;
 
     async function fetchUsers() {
       try {
