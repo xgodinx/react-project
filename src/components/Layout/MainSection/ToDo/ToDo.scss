@@ -1,0 +1,44 @@
+.todo {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 14px;
+}
+
+.todo__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.todo__title {
+  margin: 10px;
+}
+.todo__input {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  height: 10px;
+  padding: 12px 16px;
+  font-size: 20px;
+  height: 40px;
+}
+
+.todo__buttons {
+  display: flex;
+  justify-content: space-between;
+  button {
+    max-width: 120px;
+    width: 100%;
+  }
+}
+.todo__list {
+  align-self: flex-start;
+  li {
+    font-size: 18px;
+  }
+}
