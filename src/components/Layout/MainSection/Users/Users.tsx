@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MainButton from "../MainButton/MainButton";
-
+import "./Users.scss";
 export default function Users() {
   const [updateList, setUpdateList] = useState(false);
   const [users, setUsers] = useState([]);
@@ -30,11 +30,15 @@ export default function Users() {
   }, [updateList]);
 
   return (
-    <div>
-      <MainButton onClick={() => setUpdateList(true)}>Update</MainButton>
-
+    <div className="users">
+      <div className="update__users">
+        <h3 className="users__title">Our best users</h3>
+        <MainButton onClick={() => setUpdateList((prev) => !prev)}>
+          Update
+        </MainButton>
+      </div>
       {users.map((user: any) => (
-        <ul key={user.id}>
+        <ul className="users__list" key={user.id}>
           <li>Name: {user.name}</li>
           <li>Email: {user.email}</li>
         </ul>
