@@ -1,10 +1,15 @@
 import MainButton from "../MainButton/MainButton";
 import { useEffect, useState } from "react";
 import "./ToDo.scss";
+
+type Task = {
+  text: string;
+  done: boolean;
+};
+
 export default function ToDo({ theme, themes }: any) {
   const [task, setTask] = useState("");
-  const [tasks, setTasks] = useState<string[]>([]);
-  const [checkbox, setCheckbox] = useState(false);
+  const [tasks, setTasks] = useState<Task[]>([]);
   useEffect(() => {
     const saved = localStorage.getItem("tasks");
     if (saved) {
@@ -23,9 +28,8 @@ export default function ToDo({ theme, themes }: any) {
   const addTask = (e: any) => {
     e.preventDefault();
     if (task.trim() === "") return;
-    setTasks([...tasks, task]);
+    setTasks([...tasks, { text: task, done: false }]);
     setTask("");
-    console.log("tasks added");
   };
 
   const clearTasks = () => {
@@ -37,6 +41,14 @@ export default function ToDo({ theme, themes }: any) {
     setTasks(tasks.filter((_, index) => index !== selectedIndex));
   };
 
+  const toggleTask = (index: number) => {
+    setTasks(
+      tasks.map((task, i) =>
+        i === index ? { ...task, done: !task.done } : task
+      )
+    );
+  };
+  console.log("tasks added", tasks);
   return (
     <div className="todo">
       <h3 className="todo__title">Enter you task</h3>
@@ -82,9 +94,15 @@ export default function ToDo({ theme, themes }: any) {
               type="checkbox"
               name=""
               id=""
-              onChange={(e) => setCheckbox(e.target.checked)}
+              onChange={() => toggleTask(index)}
             />
-            {item}
+            <span
+              style={{
+                textDecoration: item.done ? "line-through" : "none",
+              }}
+            >
+              {item.text}
+            </span>
             <button
               onClick={() => filterTasks(index)}
               style={{ backgroundColor: "transparent", padding: "5px" }}
