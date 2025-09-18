@@ -7,7 +7,7 @@ export default function NavButtons({ onClick }: any) {
       <MainButton onClick={() => onClick("Registration")}>
         Registration
       </MainButton>
-      <MainButton onClick={() => onClick("TicTac")}>TicTac</MainButton>
+      <MainButton onClick={() => onClick("TicTacToe")}>TicTac</MainButton>
       <MainButton onClick={() => onClick("Users")}>Users</MainButton>
     </div>
   );

@@ -5,6 +5,7 @@ import ToDo from "./ToDo/ToDo";
 import Users from "./Users/Users";
 import NavButtons from "./NavButtons/NavButton";
 import Registration from "./Registration/Registration";
+import TicTacToe from "./TicTacToe/TicTacToe";
 function MainSection({ theme, themes }: any) {
   const [page, setPage] = useState("");
 
@@ -20,6 +21,7 @@ function MainSection({ theme, themes }: any) {
       {page === "ToDo" && <ToDo theme={theme} themes={themes}></ToDo>}
       {page === "Users" && <Users></Users>}
       {page === "Registration" && <Registration></Registration>}
+      {page === "TicTacToe" && <TicTacToe></TicTacToe>}
     </main>
   );
 }
