@@ -4,6 +4,7 @@ import { useState } from "react";
 import ToDo from "./ToDo/ToDo";
 import Users from "./Users/Users";
 import NavButtons from "./NavButtons/NavButton";
+import Registration from "./Registration/Registration";
 function MainSection({ theme, themes }: any) {
   const [page, setPage] = useState("");
 
@@ -18,6 +19,7 @@ function MainSection({ theme, themes }: any) {
       <NavButtons onClick={setPage}></NavButtons>
       {page === "ToDo" && <ToDo theme={theme} themes={themes}></ToDo>}
       {page === "Users" && <Users></Users>}
+      {page === "Registration" && <Registration></Registration>}
     </main>
   );
 }

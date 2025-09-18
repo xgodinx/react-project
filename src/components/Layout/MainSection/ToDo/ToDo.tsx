@@ -4,8 +4,7 @@ import "./ToDo.scss";
 export default function ToDo({ theme, themes }: any) {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState<string[]>([]);
-  console.log("tasks >", tasks);
-
+  const [checkbox, setCheckbox] = useState(false);
   useEffect(() => {
     const saved = localStorage.getItem("tasks");
     if (saved) {
@@ -18,9 +17,7 @@ export default function ToDo({ theme, themes }: any) {
   }, []);
 
   useEffect(() => {
-    if (tasks.length > 0) {
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-    }
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   const addTask = (e: any) => {
@@ -34,6 +31,10 @@ export default function ToDo({ theme, themes }: any) {
   const clearTasks = () => {
     setTasks([]);
     console.log("tasks cleared");
+  };
+
+  const filterTasks = (selectedIndex: any) => {
+    setTasks(tasks.filter((_, index) => index !== selectedIndex));
   };
 
   return (
@@ -76,7 +77,21 @@ export default function ToDo({ theme, themes }: any) {
       </form>
       <ul className="todo__list">
         {tasks.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              onChange={(e) => setCheckbox(e.target.checked)}
+            />
+            {item}
+            <button
+              onClick={() => filterTasks(index)}
+              style={{ backgroundColor: "transparent", padding: "5px" }}
+            >
+              ❌
+            </button>
+          </li>
         ))}
       </ul>
     </div>

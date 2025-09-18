@@ -1,0 +1,21 @@
+.reg__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.reg__login-input,
+.reg__email-input {
+  padding: 8px 10px;
+  font-size: 18px;
+}
+
+.reg__checkbox {
+  align-self: flex-start;
+  margin-right: 12px;
+}
+.reg__title {
+  margin: 0;
+}

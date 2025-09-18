@@ -38,7 +38,15 @@
 }
 .todo__list {
   align-self: flex-start;
+  list-style: none;
+  padding: 0;
   li {
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    input {
+      height: 20px;
+    }
   }
 }
