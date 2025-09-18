@@ -22,7 +22,11 @@ export default function ToDo({ theme, themes }: any) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    if (tasks.length !== 0) {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    } else {
+      localStorage.removeItem("tasks");
+    }
   }, [tasks]);
 
   const addTask = (e: any) => {
@@ -42,11 +46,7 @@ export default function ToDo({ theme, themes }: any) {
   };
 
   const toggleTask = (index: number) => {
-    setTasks(
-      tasks.map((task, i) =>
-        i === index ? { ...task, done: !task.done } : task
-      )
-    );
+    setTasks(tasks.map((t, i) => (i === index ? { ...t, done: !t.done } : t)));
   };
   console.log("tasks added", tasks);
   return (

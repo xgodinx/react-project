@@ -8,7 +8,6 @@ import Registration from "./Registration/Registration";
 import TicTacToe from "./TicTacToe/TicTacToe";
 function MainSection({ theme, themes }: any) {
   const [page, setPage] = useState("");
-
   return (
     <main
       style={{
