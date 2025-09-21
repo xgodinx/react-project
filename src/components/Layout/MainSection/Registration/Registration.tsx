@@ -1,4 +1,4 @@
-import MainButton from "../MainButton/MainButton";
+import MainButton from "../../../UI/MainButton/MainButton";
 import { useState } from "react";
 import "./Registration.scss";
 export default function Registration() {

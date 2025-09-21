@@ -1,5 +1,5 @@
 import "./TicTacToe.scss";
-import MainButton from "../MainButton/MainButton";
+import MainButton from "../../../UI/MainButton/MainButton";
 import circle_icon from "../../../../assets/TicTacImg/circle.png";
 import cross_icon from "../../../../assets/TicTacImg/cross.png";
 import { useState } from "react";

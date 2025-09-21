@@ -1,4 +1,4 @@
-import MainButton from "../MainButton/MainButton";
+import MainButton from "../../../UI/MainButton/MainButton";
 import { useEffect, useState } from "react";
 import "./ToDo.scss";
 

@@ -3,7 +3,7 @@ import viteLogo from "../../../assets/vite.svg";
 import HeaderTime from "./HeaderTime";
 import "./Header.scss";
 
-import ThemeButton from "../../ThemeButton/ThemeButton";
+import ThemeButton from "../../UI/ThemeButton/ThemeButton";
 
 function Header({ theme, setTheme, themes }: any) {
   return (

@@ -1,4 +1,4 @@
-import MainButton from "../MainButton/MainButton";
+import MainButton from "../../../UI/MainButton/MainButton";
 import "./NavButtons.scss";
 export default function NavButtons({ onClick }: any) {
   return (
@@ -9,6 +9,7 @@ export default function NavButtons({ onClick }: any) {
       </MainButton>
       <MainButton onClick={() => onClick("TicTacToe")}>TicTac</MainButton>
       <MainButton onClick={() => onClick("Users")}>Users</MainButton>
+      <MainButton onClick={() => onClick("Posts")}>Posts</MainButton>
     </div>
   );
 }

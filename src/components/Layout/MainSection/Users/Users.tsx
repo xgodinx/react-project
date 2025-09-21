@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import MainButton from "../MainButton/MainButton";
+import MainButton from "../../../UI/MainButton/MainButton";
 import "./Users.scss";
 export default function Users() {
   const [updateList, setUpdateList] = useState(false);
