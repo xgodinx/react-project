@@ -33,17 +33,43 @@
 
 .search__form {
   display: flex;
-
-  gap: 10px;
+  justify-content: space-between;
   margin: 20px;
-  input {
-    max-width: 200px;
-    width: 100%;
-    height: 40px;
-    padding: 12px 10px;
-    font-size: 16px;
+  .search__input {
+    input {
+      margin-right: 10px;
+      max-width: 200px;
+      width: 100%;
+      height: 40px;
+      padding: 12px 10px;
+      font-size: 16px;
+    }
+    button {
+      height: 40px;
+    }
   }
-  button {
-    height: 40px;
-  }
+}
+.newPostBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.remove-btn {
+  margin-right: 0.5rem;
+}
+
+.post-enter {
+  transform: translateX(0px);
+}
+.post-enter-active {
+  transform: translateX(350px);
+
+  transition: all 500ms ease-in;
+}
+.post-exit {
+  opacity: 1;
+}
+.post-exit-active {
+  transform: translateX(-350px);
+  transition: all 500ms ease-in;
 }

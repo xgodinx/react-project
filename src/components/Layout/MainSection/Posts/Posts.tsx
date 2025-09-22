@@ -3,13 +3,15 @@ import "./Posts.scss";
 import PostList from "./PostsList";
 import PostForm from "./PostsForm";
 import SearchPost from "./SearchPost";
+import MainModal from "../../../UI/MainModal/MainModal";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-
+  const [modal, setModal] = useState(false);
   function createPost(newPost: any) {
     setPosts((prev: any): any => [...prev, newPost]);
+    setModal(false);
   }
 
   function removePost(post: any) {
@@ -26,8 +28,14 @@ export default function Posts() {
 
   return (
     <div className="posts">
-      <PostForm createPost={createPost}></PostForm>
-      <SearchPost value={searchInput} onChange={setSearchInput} />
+      <MainModal visible={modal} setVisible={setModal}>
+        <PostForm createPost={createPost}></PostForm>
+      </MainModal>
+      <SearchPost
+        value={searchInput}
+        onChange={setSearchInput}
+        setModal={setModal}
+      />
       <PostList
         removePost={removePost}
         filteredPosts={filteredPosts}

@@ -1,0 +1,33 @@
+.mainModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  background-color: rgba(8, 8, 8, 0.5);
+}
+
+.mainModalContent {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background-color: rgb(54, 53, 53);
+  border-radius: 16px;
+  min-width: 300px;
+  max-width: 500px;
+  width: 100%;
+  input {
+    width: 400px;
+  }
+}
+
+.mainModal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainModalCloseBtn {
+  margin-bottom: 10px;
+  align-self: flex-end;
+}
