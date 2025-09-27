@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MainButton from "../../../UI/MainButton/MainButton";
 
 import styles from "./DataFetcher.module.scss";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 export default function MessageComponent() {
   type TodoList = {
     id: number;
