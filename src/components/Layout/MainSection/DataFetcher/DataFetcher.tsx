@@ -15,7 +15,7 @@ export default function MessageComponent() {
   const [todoList, setTodoList] = useState<TodoList[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const [filteredTodoList, setFilteredTodoList] = useState<TodoList[]>([]);
   useEffect(() => {
     if (!isFetchAllowed) return;
     setLoading(true);
@@ -27,6 +27,7 @@ export default function MessageComponent() {
             "https://jsonplaceholder.typicode.com/todos?_limit=20"
           );
           setTodoList(response.data);
+          setFilteredTodoList(response.data);
         } catch (e: unknown) {
           if (axios.isAxiosError(e)) {
             console.log(e.code);
@@ -51,6 +52,17 @@ export default function MessageComponent() {
     setError("");
   };
 
+  const showCompletedTasks = () => {
+    setFilteredTodoList(todoList.filter((task) => task.completed));
+  };
+  const showNotCompletedTasks = () => {
+    setFilteredTodoList(todoList.filter((task) => !task.completed));
+  };
+
+  const showAllTasks = () => {
+    setFilteredTodoList(todoList);
+  };
+
   return (
     <div className={styles.todo}>
       <div className={styles.todo__btns}>
@@ -66,18 +78,27 @@ export default function MessageComponent() {
       {error && (
         <p className={styles.todo__error}>Something went wrong, {error}</p>
       )}
-      <div className="todo__list">
-        {todoList.map((todo) => {
-          return (
-            <ul key={todo.id}>
-              <li>
-                {todo.id}. Title: {todo.title}
-              </li>
-              <li>Completed: {todo.completed ? "✅" : "❌"}</li>
-            </ul>
-          );
-        })}
-      </div>
+      {!!todoList.length && (
+        <div className={styles.todoList__btns}>
+          <MainButton onClick={showAllTasks}>All</MainButton>
+          <MainButton onClick={showCompletedTasks}>Completed</MainButton>
+          <MainButton onClick={showNotCompletedTasks}>Not completed</MainButton>
+        </div>
+      )}
+      {!!todoList.length && (
+        <div className="todo__list">
+          {filteredTodoList.map((todo) => {
+            return (
+              <ul key={todo.id}>
+                <li>
+                  {todo.id}. Title: {todo.title}
+                </li>
+                <li>Completed: {todo.completed ? "✅" : "❌"}</li>
+              </ul>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
