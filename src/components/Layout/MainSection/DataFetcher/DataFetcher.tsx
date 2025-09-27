@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MainButton from "../../../UI/MainButton/MainButton";
 
 import styles from "./DataFetcher.module.scss";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 export default function MessageComponent() {
   type TodoList = {
     id: number;
@@ -27,10 +27,14 @@ export default function MessageComponent() {
             "https://jsonplaceholder.typicode.com/todos?_limit=20"
           );
           setTodoList(response.data);
-        } catch (e: any) {
-          console.log(e.code);
-          setError(e.message);
-          setTodoList([]);
+        } catch (e: unknown) {
+          if (axios.isAxiosError(e)) {
+            console.log(e.code);
+            setError(e.message);
+            setTodoList([]);
+          } else {
+            console.error("unexpecterd error", e);
+          }
         } finally {
           setLoading(false);
         }
