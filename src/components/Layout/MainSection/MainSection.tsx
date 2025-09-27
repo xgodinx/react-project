@@ -7,6 +7,7 @@ import NavButtons from "./NavButtons/NavButton";
 import Registration from "./Registration/Registration";
 import TicTacToe from "./TicTacToe/TicTacToe";
 import Posts from "./Posts/Posts";
+import DataFetcher from "./DataFetcher/DataFetcher";
 function MainSection({ theme, themes }: any) {
   const [page, setPage] = useState("");
   return (
@@ -23,6 +24,7 @@ function MainSection({ theme, themes }: any) {
       {page === "Registration" && <Registration></Registration>}
       {page === "TicTacToe" && <TicTacToe></TicTacToe>}
       {page === "Posts" && <Posts></Posts>}
+      {page === "DataFetcher" && <DataFetcher></DataFetcher>}
     </main>
   );
 }

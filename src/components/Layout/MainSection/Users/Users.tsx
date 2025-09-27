@@ -36,7 +36,6 @@ export default function Users() {
         }
       }
     }
-
     fetchUsers();
     return () => controller.abort();
   }, [updateList]);

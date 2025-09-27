@@ -10,6 +10,9 @@ export default function NavButtons({ onClick }: any) {
       <MainButton onClick={() => onClick("TicTacToe")}>TicTac</MainButton>
       <MainButton onClick={() => onClick("Users")}>Users</MainButton>
       <MainButton onClick={() => onClick("Posts")}>Posts</MainButton>
+      <MainButton onClick={() => onClick("DataFetcher")}>
+        DataFetcher
+      </MainButton>
     </div>
   );
 }
