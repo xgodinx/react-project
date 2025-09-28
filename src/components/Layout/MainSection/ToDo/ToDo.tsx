@@ -7,7 +7,7 @@ type Task = {
   done: boolean;
 };
 
-export default function ToDo({ theme, themes }: any) {
+export default function ToDo() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState<Task[]>([]);
   useEffect(() => {
@@ -52,15 +52,7 @@ export default function ToDo({ theme, themes }: any) {
   return (
     <div className="todo">
       <h3 className="todo__title">Enter you task</h3>
-      <form
-        style={{
-          backgroundColor: themes[theme].background,
-          color: themes[theme].color,
-        }}
-        action="#"
-        className="todo__form"
-        onSubmit={addTask}
-      >
+      <form action="#" className="todo__form" onSubmit={addTask}>
         <input
           type="text"
           className="todo__input"
@@ -68,17 +60,10 @@ export default function ToDo({ theme, themes }: any) {
           onChange={(e) => setTask(e.target.value)}
         />
         <div className="todo__buttons">
-          <MainButton
-            theme={theme}
-            themes={themes}
-            className="todo__btn-add"
-            type="submit"
-          >
+          <MainButton className="todo__btn-add" type="submit">
             Add
           </MainButton>
           <MainButton
-            theme={theme}
-            themes={themes}
             className="todo__btn-del"
             type="button"
             onClick={clearTasks}

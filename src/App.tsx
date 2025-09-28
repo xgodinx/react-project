@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./components/Layout/HeaderSection/Header";
 import MainSection from "./components/Layout/MainSection/MainSection";
 import FooterSection from "./components/Layout/FooterSection/FooterSection";
+import { Outlet } from "react-router";
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -20,7 +21,9 @@ function App() {
   return (
     <>
       <Header themes={themes} theme={theme} setTheme={setTheme} />
-      <MainSection themes={themes} theme={theme}></MainSection>
+      <MainSection themes={themes} theme={theme}>
+        <Outlet />
+      </MainSection>
       <FooterSection></FooterSection>
     </>
   );
